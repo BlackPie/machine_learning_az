@@ -88,11 +88,13 @@ If we change kernel to ‘rbf’, then the boundary line becomes a curve and bas
 
 ## Section 16: Naive Bayes
 **Bayes’ Theorem** - TODO
+
 Here is an example of application: ![image](images/24.png)
 And some intuition: ![image](images/25.png)
 
 Naive Bayes Classifier Intuition
-# TODO: find a good explanation
+
+`# TODO: find a good explanation`
 
 Basically we just calculate this:
 Step 2: Calculate all numbers ![image](images/26.png)
@@ -127,10 +129,10 @@ Result chart: ![image](images/29.png)
 
 **Ensemble learning** is when you take multiple machine learning algorythms and put them together to create one bigger algorythm.
 
-Step 1. Pick K random data points from the training set.
-Step 2. Build a decision tree associated to these K data points
-Step 3. Choose number N of trees and repeat previous steps N times
-Step 4. For a new data point, make all trees predict and select category which has more votes from trees.
+* Step 1. Pick K random data points from the training set.
+* Step 2. Build a decision tree associated to these K data points
+* Step 3. Choose number N of trees and repeat previous steps N times
+* Step 4. For a new data point, make all trees predict and select category which has more votes from trees.
 
 So yeah, it is very similar to random forest regression.
 
