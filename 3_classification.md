@@ -37,10 +37,10 @@ Basically it is the same template as we had before, but now we have classifier i
 ## Section 13: K-Nearest Neighbors (KNN)
 
 Steps:
-Choose the number K of neighbors. Most common default value for K is 5.
-Take the K nearest neighbors of the new data point according to the Euclidean distance
-Among these K neighbors, count the number of data points in each category
-Assign the new data point to the category where you counted the most neighbors
+* Choose the number K of neighbors. Most common default value for K is 5.
+* Take the K nearest neighbors of the new data point according to the Euclidean distance
+* Among these K neighbors, count the number of data points in each category
+* Assign the new data point to the category where you counted the most neighbors
 ![image](images/17.png)
 
 ```python
