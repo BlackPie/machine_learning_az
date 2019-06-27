@@ -148,17 +148,12 @@ If we change kernel to ‘rbf’, then the boundary line becomes a curve and bas
 
 
 ## Section 16: Naive Bayes
-**Bayes’ Theorem** - TODO
-
+**Bayes’ Theorem**  describes the probability of an event, based on prior knowledge of conditions that might be related to the event. For example, if cancer is related to age, then, using Bayes' theorem, a person's age can be used to more accurately assess the probability that they have cancer, compared to the assessment of the probability of cancer made without knowledge of the person's age.
 Here is an example of application: ![image](images/24.png)
 And some intuition: ![image](images/25.png)
 
-Naive Bayes Classifier Intuition
-
-`# TODO: find a good explanation`
-
 Basically we just calculate this:
-Step 2: Calculate all numbers ![image](images/26.png)
+![image](images/26.png)
 
 The way you can simplify calculations(but only for comparison): ![image](images/27.png)
 
