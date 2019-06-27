@@ -25,7 +25,6 @@ Categorical data has to be interchanged with numbers, so we have to use «One Ho
 It will turn all categories into columns and set 1 if this column is true for the line and 0 if it isn’t.
 It is also called «Dummy Variable»
 ![image](images/1.png)
-http://prntscr.com/nlxms6
 
 ```python
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
