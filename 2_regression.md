@@ -1,14 +1,10 @@
-Part 2
-Regression
-————————————
+# Part 2: Regression
 
-Regression  — technic to determine relationships between variables
-Linear Regression  —  Specific type of a regression when you describe dependent variable(y) 
-                                     by a line (linear expression)) (every point of line is a prediction for a given X)
+**Regression**  — technic to determine relationships between variables
+**Linear Regression**  —  specific type of a regression when you describe dependent variable(y) by a line (linear expression), soevery point of line is a prediction for a given X
 
-Section 4
-————————————
-Simple Linear Regression
+#### Section 4
+**Simple Linear Regression**
 http://prntscr.com/nlyunp
 http://prntscr.com/nlyymf
 
