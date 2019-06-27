@@ -1,29 +1,21 @@
-Part 8: Deep Learning
+# Part 8: Deep Learning
 
-Section 31
-————————————
-Artificail Neural Networks
+## Section 31: Artificail Neural Networks
+**Deep Learning** is part of a broader family of machine learning methods based on artificial neural networks. It tries to mimic how the human brain operates.
+![image](images/44.png)
 
-Deep Learning is part of a broader family of machine learning methods based on artificial neural networks. It tries to mimic how the human brain operates.
-http://prntscr.com/o5y8vm
+**Neuron**(or node) is the basic building block of ANNs. It gets input signals and has an output signal.
+![image](images/45.png)
+![image](images/46.png)
 
-The neuron(or node) is the basic building block of ANNs. It gets input signals and has an output signal.
-http://prntscr.com/o5zaet
-http://prntscr.com/o5zgxq
-
-Weights are how neural networks learn by adjusting them. It decides what signal(aka feature) is more importand and what isn’t.
+**Weights** are how neural networks learn by adjusting them. It decides what signal(aka feature) is more importand and what isn’t.
 Neuron sum all inputs and apply an activation function. 
 Then it passes the value forward.
 
-Examples of activation function: 
-http://prntscr.com/o5zhm8
-http://prntscr.com/o5zja7
-http://prntscr.com/o5zkfv
-
-An example of using activations functions in a small neural network: http://prntscr.com/o5zn5c
+An example of using two different activations functions in a small neural network: ![image](images/47.png)
 
 How do NNs work? Here is an example of building a NN for a real estate price estimator:
-Simplest example of a NN without hidden layers: http://prntscr.com/o5zu9y
+Simplest example of a NN without hidden layers: ![image](images/48.png)
 That way tou can describe any machine learning algorythm we already learned.
 The extra power of NNs is in its hidden layer.
 Every node in the hidden layer has its own speciality. One node can be specialized in finding apartments not far from the city centre but with a big area. It means that some input values will be more important for the node(distance, area) and other will not. This node will activate only when certain criteria is met.
@@ -31,7 +23,7 @@ Another node can look for big properties in new buildings, so it will take other
 A node can work with a single input parameter. The higher property’s age the lower price. But if a building is 150 years old then it becomes a historic property and can be a positive marker for a higher evaluation.
 That’s the power of a neural network that it can pick up parameters that we wouldn’t have thought of ourselves.
 That we it creates many features just from 4 original features and we can use these new features to make a proper prediction.
-http://prntscr.com/o6072c
+![image](images/49.png)
 
 How do NNs learn?
 You create a neural network, you tell what input is, what you want as output and let it figure out what have to be done to match them.
@@ -43,32 +35,27 @@ For n lines from a dataset it predicts n results, calculate a single Cross Funct
 Important note that all the rows share the same weights.
 After it’s done it’s called the Epoch. Epoch means the number of times a neural network processed wholde dataset.
 
-// 221. Paper: list of cost functions
+**Back Propagation** is when a neural network gets Cross Function value and adjusts its own weights.
 
-Back Propagation is when a neural network gets Cross Function value and adjusts its own weights.
+**Gradient Descent** is a method of optimization. It tells that you have to get a random point and find its slope. If it is descending then you have to get a value to the right of this point. If it is ascending, you have get a value to the left of this point. That way you will find weights to minimize crodd function value.
+![image](images/50.png)
 
-Gradient Descent is a method of optimization. It tells that you have to get a random point and find its slope. If it is descending then you have to get a value to the right of this point. If it is ascending, you have get a value to the left of this point. That way you will find weights to minimize crodd function value.
-http://prntscr.com/o61tsf
+Disadvantage of gradient descent is that it requires the cross function to convex(i.e. has one global minimum). Otherwise it can end in a local minimum: ![image](images/51.png)
 
-Disadvantage of gradient descent is that it requires the cross function to convex(i.e. has one global minimum). Otherwise it can end in a local minimum: http://prntscr.com/o620rl
+**Stochastic Gradient Descent** is a version of gradient descent which doesn’t require convexing from the cost function. According to it, you should adjust the weights after every single row rather doing everything together. SGD works faster than regular GD.
 
-
-Stochastic Gradient Descent is a version of gradient descent which doesn’t require convexing from the cost function. According to it, you should adjust the weights after every single row rather doing everything together. SGD works faster than regular GD.
-
-// 223. Book: Michael Nielsen - Neural Networks and Deep Learning
-
-# TODO: Move it up ^
+`# TODO: Move it up ^`
 The huge advantage of backpropagation is that you can adjust all weights at the same time, so you basically know which part of the error each of your weights is responsible for.
 
-Training the ANN with Stochastic Gradient Descent:
-Step 1. Randomly initialise the weights to small numbers close to 0 but not 0
-Step 2. Input the first observation of your dataset in the input layer, each feature in one input node.
-Step 3. Forward Propagation: from left to right, the neurons are activated in a way that the impact of each neuron’s activation is limited by the weights, so weights basically determine how important each neuron activation. Propagate the activations until getting the predicted result y^.
-Step 4. Compare the predicted result to the actual result. Measure the generated error.
-Step 5. Back Propagation: from right to left, update the weights according to how much they are responsible for the error. The learning rate decides how much we update the weights.
-Step 6. Repeat steps 1 to 5 and update the weights after each observation(Reinforcement Learning) or 
+**Training the ANN with Stochastic Gradient Descent:**
+* Step 1. Randomly initialise the weights to small numbers close to 0 but not 0
+* Step 2. Input the first observation of your dataset in the input layer, each feature in one input node.
+* Step 3. Forward Propagation: from left to right, the neurons are activated in a way that the impact of each neuron’s activation is limited by the weights, so weights basically determine how important each neuron activation. Propagate the activations until getting the predicted result y^.
+* Step 4. Compare the predicted result to the actual result. Measure the generated error.
+* Step 5. Back Propagation: from right to left, update the weights according to how much they are responsible for the error. The learning rate decides how much we update the weights.
+* Step 6. Repeat steps 1 to 5 and update the weights after each observation(Reinforcement Learning) or 
              Repeat steps 1 to 5 but update the weights only after a batch of observations (Batch Learning)
-Step 7. When the whole training set passed through the ANN, that makes an epoch. Redo more epochs.
+* Step 7. When the whole training set passed through the ANN, that makes an epoch. Redo more epochs.
 
 ```
 # TODO: put the implementation here
@@ -87,26 +74,24 @@ More accurate methods to find the number will be described later.
 There is no rule how to choose proper batch size and number of epoch. It is an art and you have to experiment with it to find the optimal choice.
 
 
-Section 32
-————————————
-Convolutional Neural Networks
+## Section 32: Convolutional Neural Networks
 
 Human brain tries to detect features, certain patterns of an image in order to classify it. Sometimes people misrecognize objects after a very quick look because the brain didn’t have enough time to process all features of the object. Neural networks work the same way.
 
 Convolutional Neural Networks work with images.
 They treat images as two dimensional arrays:
-http://prntscr.com/o6bpqw
-http://prntscr.com/o6bvhn
+![image](images/52.png)
+![image](images/53.png)
 They accept an image, process  and classify it:
-Step 1. Convolution
-Step 2. Max Pooling
-Step 3. Flattening
-Step 4. Full connection
+* Step 1. Convolution
+* Step 2. Max Pooling
+* Step 3. Flattening
+* Step 4. Full connection
 
-Convolution. 
-Feature detector / Kernel / Filter is a matrix
+**Convolution.**
+**Feature detector / Kernel / Filter** is a matrix
 You get a feature detector and put it over the image matrix. Then you multiply feature detector and the peace of the image matrix underneath it by element and sum all values. The result value goes to the feature map(or activation map). Then it slides forward for one pixel and everything happens again. 
-http://prntscr.com/o6c9cq
+54 http://prntscr.com/o6c9cq
 At the end the size of the image is reduced and we have a bunch of feature maps.
 http://prntscr.com/o6ccsz
 
