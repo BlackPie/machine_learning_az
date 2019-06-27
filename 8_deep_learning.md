@@ -91,17 +91,17 @@ They accept an image, process  and classify it:
 **Convolution.**
 **Feature detector / Kernel / Filter** is a matrix
 You get a feature detector and put it over the image matrix. Then you multiply feature detector and the peace of the image matrix underneath it by element and sum all values. The result value goes to the feature map(or activation map). Then it slides forward for one pixel and everything happens again. 
-54 http://prntscr.com/o6c9cq
+![image](images/54.png)
 At the end the size of the image is reduced and we have a bunch of feature maps.
-http://prntscr.com/o6ccsz
+![image](images/55.png)
 
 One set of applying feature detectors is a single layer of a CNN. It’s output is data about what features(pieces of objects) were found, for example at first level we can find claws, ears, eyes. At the second layer we use features we found at the first layer to detect more complex objects like paw, head, tail. At the third level we use bigger objects we found to detect even bigger objects or we can try to use them to make a prediction if the input image is an image of a dog or a cat. 
 Examples of objects are presented for better understanding of how CNN works. In most cases CNN’s features will mean nothing for humans, but nevertheless they work.
 
 The primary purpose of convolution is is to find features in your image using feature detector, put them into a feature map and by having them in a feature map it still preserves the spatial relationships between pixels. It is very important, otherwise we would lose the pattern
 
-Max Pooling is a technic which allows CNN to work with rotated, squashed images or images with some distortions successfully.
-Max pooling. It works with matrices as convolution, but in that case it gets result as the biggest value in the area underneath max pooling box. So it has less data but all features are still recognizable
+**Max Pooling** is a technic which allows CNN to work with rotated, squashed images or images with some distortions successfully.
+**Max pooling.** It works with matrices as convolution, but in that case it gets result as the biggest value in the area underneath max pooling box. So it has less data but all features are still recognizable
 http://prntscr.com/o6d5uv
 http://prntscr.com/o6dah9
 
