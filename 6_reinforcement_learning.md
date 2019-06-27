@@ -74,7 +74,7 @@ plt.show()
 
 It is another solution for the Multi Armed Bandit Problem.
 
-Thompson Sampling Algorithm:
+**Thompson Sampling Algorithm**
 * Step 1. At each round n, we consider two numbers for each ad i:
             - N1  -  the number of times the ad i got reward 1 up to round n
             - N0  -  the number of times the ad i got reward 0 up to round n
@@ -85,8 +85,8 @@ There is a distribution behind every slot machine. We pull an arm and construct 
 Over the time new distribution will become higher and more narrow.
 
 **UCB vs Thompson Sampling**
-![image](images/43.png)
 Thompson can be updated by batches and therefore it is much more computational friendly
+![image](images/43.png)
 
 Perfomance:
 * random: 1126
