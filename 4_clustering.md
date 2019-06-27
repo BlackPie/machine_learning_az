@@ -3,8 +3,6 @@
 **Clustering** is similar to classification, but the basis is different. In Clustering you don’t know what you are looking for, and you are trying to identify some segments or clusters in your data. When you use clustering algorithms on your dataset, unexpected things can suddenly pop up like structures, clusters and groupings you would have never thought of otherwise.
 
 ## Section 21: K-Means Clustering
-
-33 http://prntscr.com/o3ykji
 ![image](images/33.png)
 That’s how it works:
 * Step 1. Choose the number K of clusters 
