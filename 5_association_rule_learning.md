@@ -18,12 +18,8 @@ Apriory algorithm has three parts: support, confidence and the lift. Let’s use
 * Step 3. Take all the rules of of these subsets having higher confidence than minimum confidence
 * Step 4. Sort the rules by decreasing lift
 
-```
-TODO: put the code
-```
 Unfortunately the lectors didn’t use any library and implemented it by themselves so this code can be treated as a study example only.
 In my opinion, source code of apyory.py is much more interesting that using of the function itself.
-`# TODO: dont forget to put the library there`
 
 ## Section 25: Eclat model
 It’s just a basic version of apriory, so no one uses it.
