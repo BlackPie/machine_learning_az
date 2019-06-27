@@ -6,15 +6,15 @@ I find this course very good and informative. Especially I like parts about regr
 
 Contents:
 * Part 1: [Data Preprocessing](1_data_preprocessing.md)
-* Part 2: Regression
-* Part 3: Classification
-* Part 4: Clustering
-* Part 5: Association Rule Learning
-* Part 6: Reinforcement Learning
-* Part 7: Natural Language Processing
-* Part 8: Deep Learning
-* Part 9: Dimensionality Reduction
-* Part 10: Model Selection & Boosting
+* Part 2: [Regression](2_regression.md)
+* Part 3: [Classification](3_classification.md)
+* Part 4: [Clustering](4_clustering.md)
+* Part 5: [Association Rule Learning](5_association_rule_learning.md)
+* Part 6: [Reinforcement Learning](6_reinforcement_learning.md)
+* Part 7: [Natural Language Processing](7_natural_language_processing.md)
+* Part 8: [Deep Learning](8_deep_learning.md)
+* Part 9: [Dimensionality Reduction](9_dimensionality_reduction.md)
+* Part 10: [Model Selection & Boosting](10_model_selection.md)
 * Extra: Glossary
 * Extra: Cheat sheet 1
 * Extra: Cheat sheet 1
