@@ -70,6 +70,7 @@ Ther are multiple kernels and it is a good thing to try several of them. Linear 
 ## Section 15: Kernel SVM
 Sometimes you can’t separate dataset by a line: ![image](images/20.png)
 In that case we can map data to a higher dimensional space to make it linearly separable
+
 1D -> 2D:  ![image](images/21.png)
 2D -> 3D:  ![image](images/22.png)
 The problem of this approach is that the mapping can be highly compute intensive.
