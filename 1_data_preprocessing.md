@@ -24,7 +24,7 @@ transformed_dataset = imputer.transform(dataset)
 Categorical data has to be interchanged with numbers, so we have to use «One Hot Encoding».
 It will turn all categories into columns and set 1 if this column is true for the line and 0 if it isn’t.
 It is also called «Dummy Variable»
-![](images/1.png)
+![qwe](images/1.png)
 http://prntscr.com/nlxms6
 
 ```python
