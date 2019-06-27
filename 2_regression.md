@@ -6,8 +6,8 @@
 
 ## Section 4
 **Simple Linear Regression**
-![image](img/2.png)
-![image](img/3.png)
+![image](images/2.png)
+![image](images/3.png)
 
 You create this line by minimizing square of distance between dots which represent our data and dots on the line.
 ```python
@@ -43,7 +43,7 @@ plt.show()
 Section 5
 ————————————
 Multiple Linear Regression  —  that’s basically the same thing as Simple Linear Regression, but with multiple variables and each of them has its own coefficient.
-![image](img/4.png)
+![image](images/4.png)
 
 Assumptions of a Linear Regression: 
 Linearity
@@ -73,14 +73,14 @@ Backward Elimination
 Forward Selection
 Bidirectional Elimination
 All Models
-![image](img/5.png)
+![image](images/5.png)
 
 Explanation
 Use all of your variables. Can be used as preparation for Backward Elimination
-![image](img/6.png)
-![image](img/7.png)
-![image](img/8.png)
-![image](img/9.png)
+![image](images/6.png)
+![image](images/7.png)
+![image](images/8.png)
+![image](images/9.png)
 
 Python Implementation
 ```
@@ -145,7 +145,7 @@ Section 7
 Support Vector Regression (SVR)
 
 SVR  —  type of a SVM that supports linear and not linear regressions. SVR has different regression goal. In linear regression we try to minimize the error between the prediction and data. In SVR our goal is to make sure that errors don’t exceed the treshold.
-![image](img/10.png)
+![image](images/10.png)
 Every point represents a dimentions. These vectors are used to prform linear regression
 
 Too many new concepts and terms. I hardly understand the point.
@@ -178,9 +178,9 @@ Decision Tree Regression
 Decision tree builds regression or classification models in the form of a tree structure. It breaks down a dataset into smaller and smaller subsets while at the same time an associated decision tree is incrementally developed. The final result is a tree with decision nodes and leaf nodes. A decision node (e.g., Outlook) has two or more branches (e.g., Sunny, Overcast and Rainy), each representing values for the attribute tested. Leaf node (e.g., Hours Played) represents a decision on the numerical target. It’s first non-linear and non-continious model in the course.
 
 The algorythm is easy. We split dataset into groups until it adds up some valuable information. After it is done, we calculate average value for every leaf:
-![image](img/11.png)
+![image](images/11.png)
 After we get an input, we check what leaf it is in and immediately assign average value of the leaf as the result value.
-At the end we have convinient decision tree: ![image](img/12.png)
+At the end we have convinient decision tree: ![image](images/12.png)
 
 ```python
 from sklearn.tree import DecisionTreeRegressor
@@ -217,10 +217,10 @@ Evaluating Regression Model Perfomance
 R squared  —  a value which is used to evaluate accuracy of a model(greater is better).
 R^2 = 1 - SSres / SSavg
 To calculate it we get squared distances from the line provided by model(SSres) and squared distances from the average line (SSavg)
-![image](img/13.png)
+![image](images/13.png)
 
 Adjusted R squared  —  R squared is not quite representative when you add more variables, that’s why we should use adjusted formula.
-14
+![image](images/14.png)
 
 The usage of it is very simple. You can create multiple models and check their adjusted R squared value. The model with higher value is the best one.
 
