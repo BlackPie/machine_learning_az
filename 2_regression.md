@@ -185,7 +185,7 @@ regressor.fir(X, y)
 Evaluating Regression Model Perfomance
 
 **R squared**  —  a value which is used to evaluate accuracy of a model(greater is better).
-R^2 = 1 - SSres / SSavg
+`R^2 = 1 - SSres / SSavg`.
 To calculate it we get squared distances from the line provided by model(SSres) and squared distances from the average line (SSavg)
 ![image](images/13.png)
 
