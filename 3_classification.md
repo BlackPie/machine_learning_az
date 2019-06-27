@@ -56,7 +56,7 @@ The result model is much more accurate than logistic regression and its chart ma
 
 
 ## Section 14: Support Vector Machine (SVM)
-It draws a line between two vectors. In case of two dimensional space, vectors are just points. It draws the line a way so it maximizes the margin between every vector and the line. How does it choose vectors among all training set entries? It gets extreme values of every class and that’s its feature. It is good at distinguishing apples from oranges when an apple looks like an orange and vice verse. The reason of it is that other algoryhms create an image of an orange based on most common characteristics and determine how close a new data entry to the image. SVM determines an extreme line using most weird orange so it treats everything which look more similar to an orange as an orange for sure.
+Support Vector Machine draws a line between two vectors. In case of two dimensional space, vectors are just points. It draws the line a way so it maximizes the margin between every vector and the line. How does it choose vectors among all training set entries? It gets extreme values of every class and that’s its feature. It is good at distinguishing apples from oranges when an apple looks like an orange and vice verse. The reason of it is that other algoryhms create an image of an orange based on most common characteristics and determine how close a new data entry to the image. SVM determines an extreme line using most weird orange so it treats everything which look more similar to an orange as an orange for sure.
 ![image](images/19.png)
 
 ```python
