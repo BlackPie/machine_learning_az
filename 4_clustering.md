@@ -19,7 +19,7 @@ That’s why there is updated model K-Means++. Description of this model and the
 Choosing the right number of clusters
 WCSS stands for … and it is sum of squared sums of distances between all points and a centroid for every cluster. The more clusters you have the smaller the value will become. You have to create a chart and find optimal numer of clasters. It is called The Elbow Method: ![image](images/36.png)
 
-```
+```python
 # Importing the libraries
 import numpy as np
 import matplotlib.pyplot as plt
@@ -88,7 +88,7 @@ To determine the cutting section, various methods can be used. The first method,
 The second method uses a statistical conventions. The dendrogram can be cut where the difference is most significant. Another technique is to use the square root of the number of individuals. Another technique is to use at least 70% of the distance between the two groups. The next method is to use the function discrimination and classification based on discrimination function.
 
 Implementation
-```
+```python
 # Importing libraries
 import numpy as np
 import matplotlib.pyplot as plt
