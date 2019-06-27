@@ -5,7 +5,7 @@ I find this course very good and informative. Especially I like parts about regr
 
 
 Contents:
-* Part 1: Data Preprocessing
+* Part 1: [Data Preprocessing](1_data_preprocessing.md)
 * Part 2: Regression
 * Part 3: Classification
 * Part 4: Clustering
