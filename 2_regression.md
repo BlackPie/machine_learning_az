@@ -1,15 +1,16 @@
 # Part 2: Regression
 
 **Regression**  — technic to determine relationships between variables
+
 **Linear Regression**  —  specific type of a regression when you describe dependent variable(y) by a line (linear expression), soevery point of line is a prediction for a given X
 
-#### Section 4
+## Section 4
 **Simple Linear Regression**
-http://prntscr.com/nlyunp
-http://prntscr.com/nlyymf
+![image](img/2.png)
+![image](img/3.png)
 
 You create this line by minimizing square of distance between dots which represent our data and dots on the line.
-```
+```python
 from sklearn.linear_model import LinearRegression
 regressor = LinearRegression
 regressor.fit(X_train, y_train)  # after that it learned correlation between X and y
@@ -19,7 +20,7 @@ y_predictions = regressor.predict(X_test)
 Results visualisation. It is good to display input data and prediction to ensure that predictions are close to
 real data in both graphs. Especially it is important to check that predictions are good for data which did not
 participate in model training
-```
+```python
 import matplotlib.pyplot as plt
 # Visualising the Training set results
 plt.scatter(X_train, y_train, color = 'red')
@@ -42,7 +43,7 @@ plt.show()
 Section 5
 ————————————
 Multiple Linear Regression  —  that’s basically the same thing as Simple Linear Regression, but with multiple variables and each of them has its own coefficient.
-http://prntscr.com/nm18x3
+![image](img/4.png)
 
 Assumptions of a Linear Regression: 
 Linearity
@@ -52,11 +53,11 @@ Independence of errors
 Lack of multicollinearity
 
 If your model does not satisfy all assumptions, then probably you should not use linear regression model (TODO: check that)
-These assumtions are not explained in the course but you can find more information about it there: https://www.kdnuggets.com/2016/06/brief-primer-linear-regression-part-2.html
+These assumtions are not explained in the course but you can find more information about it there: [link](https://www.kdnuggets.com/2016/06/brief-primer-linear-regression-part-2.html)
 
 
 Dummy Variable Trap  —  you should never include all dummy variables (variables you created with OneHotEncoder) at the same time.  For example, if you have two variables and a condition that sum of all of them equals to 1 (which is true for dummy variables), then it is enough to use only one variable. The reason for this is that you duplicate data (D2 = 1 - D1) and it breaks multicollinearity assumtion mentioned above. So to recap: ALWAYS OMIT ONE DUMMY VARIABLE.
-```
+```python
 # Just skip first column of a dataset after you applied OneHotEncoder to avoid Dummy Variable Trap
 X = X[:, 1:]
 ```
@@ -72,14 +73,14 @@ Backward Elimination
 Forward Selection
 Bidirectional Elimination
 All Models
-http://prntscr.com/nm22l3
+![image](img/5.png)
 
 Explanation
 Use all of your variables. Can be used as preparation for Backward Elimination
-http://prntscr.com/nm25as
-http://prntscr.com/nm281k
-http://prntscr.com/nm297f
-http://prntscr.com/nm29nr
+![image](img/6.png)
+![image](img/7.png)
+![image](img/8.png)
+![image](img/9.png)
 
 Python Implementation
 ```
@@ -89,7 +90,7 @@ regressor.fit(X_train, y_train)
 y_pred = regressor.predict(X_test)
 ```
 
-Complete source code of a python script: https://github.com/tanvirrazin/Machine-Learning-A-Z-Udemy/blob/master/part_2-regression/multiple-regression/multiple_linear_regression.py
+Complete source code of a python script: [link](https://github.com/tanvirrazin/Machine-Learning-A-Z-Udemy/blob/master/part_2-regression/multiple-regression/multiple_linear_regression.py)
 
 Backward Elimination  —  a method to find the optimal prediction model. We remove variables one by one and observe results.
 
@@ -107,12 +108,12 @@ Polynomial Regression
 
 Polynomial Regression is absolutely the same thing as Multiple Linear Regression but varables can have power higher than 1, so the graph will be a curve.
 It’s still linear just because this word doesn’t describe relateion between Y and X, it refers to B coefficients
-```
+```python
 Y = b0 + b1*x1 + b2*x2^2 + … + bn*xn^n
 ```
 
 Implementation:
-```
+```python
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 
@@ -124,7 +125,7 @@ lin_reg.fit(X_poly, y)
 TODO: How to pick appropriate degree parameter?
 
 Visualizing the results
-```
+```python
 import matplotlib.pyplot as plt
 
 plt.scatter(X, y, color=«red»)  # dots with original input data
@@ -144,7 +145,7 @@ Section 7
 Support Vector Regression (SVR)
 
 SVR  —  type of a SVM that supports linear and not linear regressions. SVR has different regression goal. In linear regression we try to minimize the error between the prediction and data. In SVR our goal is to make sure that errors don’t exceed the treshold.
-http://prntscr.com/o0yihl
+![image](img/10.png)
 Every point represents a dimentions. These vectors are used to prform linear regression
 
 Too many new concepts and terms. I hardly understand the point.
@@ -152,7 +153,7 @@ Before they were talking about intuition behind concepts and now they pulled muc
 
 Implementation
 SVR requires feature scaling
-```
+```python
 ### SVR requires feature scaling
 from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()
@@ -177,11 +178,11 @@ Decision Tree Regression
 Decision tree builds regression or classification models in the form of a tree structure. It breaks down a dataset into smaller and smaller subsets while at the same time an associated decision tree is incrementally developed. The final result is a tree with decision nodes and leaf nodes. A decision node (e.g., Outlook) has two or more branches (e.g., Sunny, Overcast and Rainy), each representing values for the attribute tested. Leaf node (e.g., Hours Played) represents a decision on the numerical target. It’s first non-linear and non-continious model in the course.
 
 The algorythm is easy. We split dataset into groups until it adds up some valuable information. After it is done, we calculate average value for every leaf:
-http://prntscr.com/o2wlmo
+![image](img/11.png)
 After we get an input, we check what leaf it is in and immediately assign average value of the leaf as the result value.
-At the end we have convinient decision tree: http://prntscr.com/o2wn54
+At the end we have convinient decision tree: ![image](img/12.png)
 
-```
+```python
 from sklearn.tree import DecisionTreeRegressor
 regressor = DecisionTreeRegressor(random_state=0)
 regressor.fit(X, y)
@@ -200,7 +201,7 @@ Build a decision tree using the subset
 Repeat Steps 1 and 2 as many times as many trees you want to have in your model
 For an input value, apply all your trees and get average value of all results
 
-```
+```python
 from sklearn.ensemble import RandomForestRegressor
 regressor = RandomForestRegressor(n_estimators=10, random_state=0)
 regressor.fir(X, y)
@@ -216,11 +217,11 @@ Evaluating Regression Model Perfomance
 R squared  —  a value which is used to evaluate accuracy of a model(greater is better).
 R^2 = 1 - SSres / SSavg
 To calculate it we get squared distances from the line provided by model(SSres) and squared distances from the average line (SSavg)
-http://prntscr.com/o2yrvq
+![image](img/13.png)
 
 Adjusted R squared  —  R squared is not quite representative when you add more variables, that’s why we should use adjusted formula.
-http://prntscr.com/o2z7fq
+14
 
 The usage of it is very simple. You can create multiple models and check their adjusted R squared value. The model with higher value is the best one.
 
-Cheat sheet with pros and cons of different regression models: https://sds-platform-private.s3-us-east-2.amazonaws.com/uploads/P14-Regression-Pros-Cons.pdf
+Cheat sheet with pros and cons of different regression models: [link](https://sds-platform-private.s3-us-east-2.amazonaws.com/uploads/P14-Regression-Pros-Cons.pdf)
