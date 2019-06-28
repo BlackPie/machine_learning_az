@@ -128,5 +128,4 @@ plt.show()
 
 Pros and cons of two clustering algorythms: [link](https://sds-platform-private.s3-us-east-2.amazonaws.com/uploads/P14-Clustering-Pros-Cons.pdf)
 
-
-
+[Next Part >>>](5_association_rule_learning.md)
