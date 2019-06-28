@@ -51,3 +51,5 @@ scaler = StandardScaler()
 X_train = scaler.fit_transfrom(X_train)
 X_test = scaler.transfrom(X_test)
 ```
+
+[Next Part >>>](src/2_regression.md)
