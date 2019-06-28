@@ -1,6 +1,6 @@
 # Part 1: Data Preprocessing
 
-There are differnt types of variables - dependent and independent.
+There are different types of variables - dependent and independent.
 We use independent variables to predict dependent ones.
 For example, we use country, age and salary variables to predict sales.
 
@@ -42,16 +42,12 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 ```
 
 **Feature scaling** (some python libraries dont require it)
-We have to put all numbers on the same scale, becuase ML algorythms calculate square difference and it quite
+We have to put all numbers on the same scale, because ML algorythms calculate square difference and it quite
 depends on range of values. So instead of 40 … 60 in age column and 40000 - 100000 in salary column we will
-have -1…1 in every column. We use normalization or standartization for that.
+have -1…1 in every column. We use normalization or standardization for that.
 ```python
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 X_train = scaler.fit_transfrom(X_train)
 X_test = scaler.transfrom(X_test)
 ```
-
-
-
-
