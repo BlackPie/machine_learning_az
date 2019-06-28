@@ -195,3 +195,5 @@ To calculate it we get squared distances from the line provided by model(SSres) 
 The usage of it is very simple. You can create multiple models and check their adjusted R squared value. The model with higher value is the best one.
 
 Cheat sheet with pros and cons of different regression models: [link](https://sds-platform-private.s3-us-east-2.amazonaws.com/uploads/P14-Regression-Pros-Cons.pdf)
+
+[Next Part >>>](3_classification.md)
