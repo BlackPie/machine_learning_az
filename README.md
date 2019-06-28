@@ -3,7 +3,7 @@
 I find this course to be very good and informative. I particularly like the parts about regressors, classifiers and neural networks. Of course they couldn't cover a lot of things of such big and complex topic as Deep Learning, but general concepts were explained excellently. I also appreciate it that lecturers didn't talk much about complex math behind algorithms and were more aimed at to talk about concepts' intuition. It also allowed them to fit more models and algorithms into the course. When it comes to practice, the guys go straight to the point and implement models solving real life problems. Sometimes the lecturers spend too much time explaining very basic python things, so that's very useful to have all code-related information in this document.
 
 
-Contents:
+## Contents:
 * Part 1: [Data Preprocessing](src/1_data_preprocessing.md)
 * Part 2: [Regression](src/2_regression.md)
 * Part 3: [Classification](src/3_classification.md)
