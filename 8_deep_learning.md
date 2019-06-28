@@ -58,12 +58,76 @@ The huge advantage of backpropagation is that you can adjust all weights at the 
 * Step 7. When the whole training set passed through the ANN, that makes an epoch. Redo more epochs.
 
 ```
-# TODO: put the implementation here
+# Importing the libraries
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 
-# output_dim - number of nodes in the hidden layer
-# input_dim - nuber of nodes in the input layer
+# Importing the dataset
+dataset = pd.read_csv('../../data_files/Churn_Modelling.csv')
+X = dataset.iloc[:, 3:13].values
+y = dataset.iloc[:, 13].values
 
-# batch_size - number of rowas 
+# ------ Part-1: Data preprocessing ----------
+
+# Encoding categorical data
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+labelencoder_X_1 = LabelEncoder()
+X[:, 1] = labelencoder_X_1.fit_transform(X[:, 1])
+labelencoder_X_2 = LabelEncoder()
+X[:, 2] = labelencoder_X_2.fit_transform(X[:, 2])
+onehotencoder = OneHotEncoder(categorical_features=[1])
+X = onehotencoder.fit_transform(X).toarray()
+X = X[:, 1:]
+
+# Splitting the dataset into the Training set and Test set
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+
+# Feature Scaling
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.transform(X_test)
+
+# ------- Part-2: Build the ANN --------
+
+# import keras library and packages
+import keras
+from keras.models import Sequential
+from keras.layers import Dense
+
+# Initializing the ANN
+classifier = Sequential()
+
+# Adding the input layer and the first hidden layer
+layer_info = Dense(activation='relu', input_dim=11, kernel_initializer='uniform', units=6)
+classifier.add(layer_info)
+
+# Adding second hidden layer
+layer_info = Dense(activation='relu', kernel_initializer='uniform', units=6)
+classifier.add(layer_info)
+
+# Adding output layer
+layer_info = Dense(activation='sigmoid', kernel_initializer='uniform', units=1)
+classifier.add(layer_info)
+
+# Compiling the ANN
+classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# Fitting the ANN to the training set
+classifier.fit(X_train, y_train, batch_size=10, nb_epoch=100)
+
+# Predicting the Test set results
+y_pred = classifier.predict(X_test)
+y_pred = (y_pred > 0.5)
+
+# Making the confusion Matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
+
+
+# batch_size - number of rows 
 ```
 
 Important note: if your data is linearly separable and dataset chart can be split by lines to classes, you dont need a neural network and should use another model.
@@ -102,23 +166,20 @@ The primary purpose of convolution is is to find features in your image using fe
 
 **Max Pooling** is a technic which allows CNN to work with rotated, squashed images or images with some distortions successfully.
 **Max pooling.** It works with matrices as convolution, but in that case it gets result as the biggest value in the area underneath max pooling box. So it has less data but all features are still recognizable
-http://prntscr.com/o6d5uv
-http://prntscr.com/o6dah9
+![image](images/56.png)
+![image](images/57.png)
 
-Paper: Evaluating of pooling operations in convolutional architectures for object recognition
-
-Flattening is a technic when you create make all your pooled feature maps an array of values so it is reade to becomes the input layer of a future ANN.
-http://prntscr.com/o6dgwk
+**Flattening** is a technic when you create make all your pooled feature maps an array of values so it is reade to becomes the input layer of a future ANN.
+![image](images/58.png)
 
 After we finish max pooling step we have a big number of features encoded in numbers and that’s good data to be consumed by ANN.
 Full Connection is a step when we add and ANN to the existing model: 
-http://prntscr.com/o6dhi2
-http://prntscr.com/o6dxwa
-http://prntscr.com/o6e02v
+![image](images/59.png)
+![image](images/60.png)
 
 Then an ANN works as usual. The interesting thingh though is that backpropagation in case of a CNN is more complex. It goes from the very end of a CNN to the very beginning, so back propagation updates not just weights in the ANN but alse feature detectors in the convolutional layer.
 
-Final scheme of CNN: http://prntscr.com/o6e0po
+Final scheme of CNN: ![image](images/61.png)
 
 Data structure required by keras
 ```
@@ -132,19 +193,78 @@ Data structure required by keras
 ```
 
 ```
-# TODO: Put the code here
+# Importing the Keras libraries and packages
+from keras.models import Sequential
+from keras.layers import Convolution2D
+from keras.layers import MaxPooling2D
+from keras.layers import Flatten
+from keras.layers import Dense
+
+# Initializing the CNN
+classifier = Sequential()
+
+# step - 1 - Convolution
+classifier.add(Convolution2D(32, 3, 3 input_shape=(64, 64, 3), activation='relu'))
+
+# step -2 -- Pooling
+classifier.add(MaxPooling2D(pool_size=(2, 2)))
+
+# Adding a second convolutional layer
+classifier.add(Convolution2D(32, 3, 3, activation='relu'))
+classifier.add(MaxPooling2D(pool_size=(2, 2)))
+
+# step - 3 -- Flattening
+classifier.add(Flatten())
+
+# Step -4 Full Connection
+classifier.add(Dense(output_dim=128, activation='relu'))
+classifier.add(Dense(output_dim=1, activation='sigmoid'))
+
+# Compiling the CNN
+classifier.compile(
+    optimizer='adam',
+    loss='binary_crossentropy',
+    metrics=['accuracy']
+)
+
+# part - 2 -- Fitting the CNN to the images
+from keras.preprocessing.image import ImageDataGenerator
+
+train_datagen= ImageDataGenerator(
+    rescale=1./255,
+    shear_range=0.2,
+    zoom_range=0.2,
+    horizontal_flip=True
+)
+test_datagen = ImageDataGenerator(rescale=1./255)
+
+training_set = train_datagen.flow_from_directory(
+    'dataset/training_set', # path/to/data/
+    target_size=(64, 64),
+    batch_size=32,
+    class_mode='binary'
+)
+test_set = test_datagen.flow_from_directory(
+    'dataset/test_set',
+    target_size=(64, 64),
+    batch_size=32,
+    class_mode='binary'
+)
+
+classifier.fit_generator(
+    training_set,
+    samples_per_epoch=8000,
+    nb_epoch=25,
+    validation_data=test_set,
+    nb_val_samples=2000
+)
+
 
 # nb_filters - number of feature detectors to apply on the inout image
 # all images have to be resized to a single format
-
 # mark extra convolutional layer
 ```
 
 # TODO: можешь пересмотреть часть 8 еще раз, особенно обьяснения теории в практических занятиях
 
 Image augmentation is an approach when you get initial set of images and apply some functions like rotating, squashing, cropping or flipping. That way you can make the dataset much bigger and it will lead to a better accuracy and prevent overfitting.
-
-
-
-
-
