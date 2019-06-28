@@ -141,3 +141,5 @@ plt.xlabel('Ads')
 plt.ylabel('Number of times each ad was selected')
 plt.show()
 ```
+
+[Next Part >>>](7_natural_language_processing.md)
