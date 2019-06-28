@@ -37,15 +37,12 @@ After it’s done it’s called the Epoch. Epoch means the number of times a neu
 
 **Back Propagation** is when a neural network gets Cross Function value and adjusts its own weights.
 
-**Gradient Descent** is a method of optimization. It tells that you have to get a random point and find its slope. If it is descending then you have to get a value to the right of this point. If it is ascending, you have get a value to the left of this point. That way you will find weights to minimize crodd function value.
+**Gradient Descent** is a method of optimization. It tells that you have to get a random point and find its slope. If it is descending then you have to get a value to the right of this point. If it is ascending, you have get a value to the left of this point. That way you will find weights to minimize crodd function value. The huge advantage of backpropagation is that you can adjust all weights at the same time, so you basically know which part of the error each of your weights is responsible for.
 ![image](images/50.png)
 
 Disadvantage of gradient descent is that it requires the cross function to convex(i.e. has one global minimum). Otherwise it can end in a local minimum: ![image](images/51.png)
 
 **Stochastic Gradient Descent** is a version of gradient descent which doesn’t require convexing from the cost function. According to it, you should adjust the weights after every single row rather doing everything together. SGD works faster than regular GD.
-
-`# TODO: Move it up ^`
-The huge advantage of backpropagation is that you can adjust all weights at the same time, so you basically know which part of the error each of your weights is responsible for.
 
 **Training the ANN with Stochastic Gradient Descent:**
 * Step 1. Randomly initialise the weights to small numbers close to 0 but not 0
@@ -264,7 +261,5 @@ classifier.fit_generator(
 # all images have to be resized to a single format
 # mark extra convolutional layer
 ```
-
-# TODO: можешь пересмотреть часть 8 еще раз, особенно обьяснения теории в практических занятиях
 
 Image augmentation is an approach when you get initial set of images and apply some functions like rotating, squashing, cropping or flipping. That way you can make the dataset much bigger and it will lead to a better accuracy and prevent overfitting.
