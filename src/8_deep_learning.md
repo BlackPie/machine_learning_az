@@ -263,3 +263,5 @@ classifier.fit_generator(
 ```
 
 Image augmentation is an approach when you get initial set of images and apply some functions like rotating, squashing, cropping or flipping. That way you can make the dataset much bigger and it will lead to a better accuracy and prevent overfitting.
+
+[Next Part >>>](9_dimensionality_reduction.md)
