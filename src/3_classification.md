@@ -225,3 +225,4 @@ Error Rate = Wrong / Total
 
 Cheat Sheet with pros and cons of classification models: [link](https://sds-platform-private.s3-us-east-2.amazonaws.com/uploads/P14-Classification-Pros-Cons.pdf)
 
+[Next Part >>>](4_clustering.md)
