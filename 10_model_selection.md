@@ -13,7 +13,7 @@ That’s why we need Cross Validation technic.
 
 **Cross Validation** is when you split test set into n pieces and test your model metrics n times, so the final metrics are average ones which are more accurate.
 
-Bias-Variance Tradeoff: ![image](images/66.png)
+**Bias-Variance Tradeoff:** ![image](images/66.png)
 
 ```
 from sklearn.model_selection import cross_val_score
