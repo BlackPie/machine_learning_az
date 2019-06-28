@@ -201,3 +201,4 @@ X_test = pca.transform(X_test)
 explained_variance = pca.explained_variance_ratio_
 ```
 
+[Next Part >>>](10_model_selection.md)
