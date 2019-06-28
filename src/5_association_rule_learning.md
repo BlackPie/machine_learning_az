@@ -25,3 +25,5 @@ In my opinion, source code of apyory.py is much more interesting that using of t
 It’s just a basic version of apriory, so no one uses it.
 
 This part is described in the course very poorly.
+
+[Next Part >>>](6_reinforcement_learning.md)
