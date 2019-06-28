@@ -107,7 +107,7 @@ Steps:
 ```python
 from sklearn.neighbors import KNeighborsClassifier
 
-# two last parameters are used to tell the classifier to use Euclidian distance
+# two last parameters are used to tell the classifier to use Euclidean distance
 classifier = KNeighborsClassifier(n_neighbors=5, metric=‘minkowski’, p=2)
 classifier.fit(X_train, y_train)
 classifier.predict(X_test)
@@ -117,7 +117,7 @@ The result model is much more accurate than logistic regression and its chart ma
 
 
 ## Section 14: Support Vector Machine (SVM)
-Support Vector Machine draws a line between two vectors. In case of two dimensional space, vectors are just points. It draws the line a way so it maximizes the margin between every vector and the line. How does it choose vectors among all training set entries? It gets extreme values of every class and that’s its feature. It is good at distinguishing apples from oranges when an apple looks like an orange and vice verse. The reason of it is that other algoryhms create an image of an orange based on most common characteristics and determine how close a new data entry to the image. SVM determines an extreme line using most weird orange so it treats everything which look more similar to an orange as an orange for sure.
+Support Vector Machine draws a line between two vectors. In case of two dimensional space, vectors are just points. It draws the line a way so it maximizes the margin between every vector and the line. How does it choose vectors among all training set entries? It gets extreme values of every class and that’s its feature. It is good at distinguishing apples from oranges when an apple looks like an orange and vice verse. The reason of it is that other algorithms create an image of an orange based on most common characteristics and determine how close a new data entry to the image. SVM determines an extreme line using most weird orange so it treats everything which look more similar to an orange as an orange for sure.
 ![image](images/19.png)
 
 ```python
@@ -183,7 +183,7 @@ Result chart: ![image](images/29.png)
 
 ## Section 18: Random Forest Classification
 
-**Ensemble learning** is when you take multiple machine learning algorythms and put them together to create one bigger algorythm.
+**Ensemble learning** is when you take multiple machine learning algorithms and put them together to create one bigger algorithm.
 
 * Step 1. Pick K random data points from the training set.
 * Step 2. Build a decision tree associated to these K data points
@@ -205,7 +205,7 @@ You have to pay extra attention to overfitting when you work with trees.
 To conclude after we tried the last classifier, the best models with most precise predictions are Kernel SVM and Naive Bayes Classifier
 
 
-## Section 17: Evaluating Classification Models Perfomance
+## Section 17: Evaluating Classification Models Performance
 
 **False Positives** is when we predicted positive outcome but it was false. **False Negative** is the same thing, but when the original prediction was negative.
 Usually False Negative is more important and dangerous than False Positive, so keep that in mind when you read confusion matrix.
@@ -217,7 +217,7 @@ Error Rate = Wrong / Total
 
 **Accuracy Paradox.** Sometimes If you always return negative or positive result instead of predicting, you can get better accurace rate. It means that you shouldn’t base your judgment only on accuracy rate: ![image](images/32.png)
 
-**CAP** Curve stands for Cumulative Accuracy Profile and it is more robust method for evaluating model’s perfomance. It compares results of the best possible model with a random prediction. Here are approximate limits for models:
+**CAP** Curve stands for Cumulative Accuracy Profile and it is more robust method for evaluating model’s performance. It compares results of the best possible model with a random prediction. Here are approximate limits for models:
 60% < X < 70%  Poor
 70% < X < 80%  Good
 80% < X < 90%  Very Good
